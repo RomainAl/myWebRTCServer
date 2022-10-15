@@ -1,0 +1,23 @@
+{
+  "name": "mywebrtc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomainAl/myWebRTCServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomainAl/myWebRTCServer/issues"
+  },
+  "homepage": "https://github.com/RomainAl/myWebRTCServer#readme",
+  "dependencies": {
+    "socket.io": "^4.5.3"
+  }
+}
