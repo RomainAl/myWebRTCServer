@@ -40,23 +40,19 @@ io.sockets.on('connection', (socket) => {
         socket.broadcast.to(roomName).emit("ready"); //Informs the other peer in the room.
     });
 
-    //Triggered when server gets an icecandidate from a peer in the room.
-
-    socket.on("candidate", function (candidate, roomName) {
-        console.log("candidate");
-        socket.broadcast.to(roomName).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
-    });
-
     //Triggered when server gets an offer from a peer in the room.
-
     socket.on("offer", function (offer) {
         socket.to(adminSId).emit("offer", offer, socket.id); //Sends Offer to the other peer in the room.
     });
 
     //Triggered when server gets an answer from a peer in the room.
-
     socket.on("answer", function (answer, clientId) {
         socket.to(clientId).emit("answer", answer); //Sends Answer to the other peer in the room.
+    });
+
+    //Triggered when server gets an icecandidate from a peer in the room.
+    socket.on("candidate", function (candidate, roomName, clientId) {
+        socket.broadcast.to(roomName).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
     });
 
     socket.on('disconnect', function() {
