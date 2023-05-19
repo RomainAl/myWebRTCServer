@@ -55,7 +55,6 @@ io.sockets.on('connection', (socket) => {
         if (socket.id != adminSId){
             socket.to(adminSId).emit("candidate", candidate);
         } else {
-            console.log(candidate);
             socket.broadcast.to(roomName).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
         }
         //socket.broadcast.to(roomName).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
