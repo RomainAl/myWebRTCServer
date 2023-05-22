@@ -34,7 +34,6 @@ io.sockets.on('connection', (socket) => {
         }
     });
 
-
     //Triggered when the person who joined the room is ready to communicate.
     socket.on("ready", function (roomName) {
         socket.broadcast.to(roomName).emit("ready"); //Informs the other peer in the room.
