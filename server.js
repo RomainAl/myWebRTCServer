@@ -50,11 +50,11 @@ io.sockets.on('connection', (socket) => {
     });
 
     //Triggered when server gets an icecandidate from a peer in the room.
-    socket.on("candidate", function (candidate, roomName) {
+    socket.on("candidate", function (candidate, roomName, currentClientId) {
         if (socket.id != adminSId){
             socket.to(adminSId).emit("candidate", candidate);
         } else {
-            socket.broadcast.to(roomName).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
+            socket.to(currentClientId).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
         }
         //socket.broadcast.to(roomName).emit("candidate", candidate); //Sends Candidate to the other peer in the room.
     });
